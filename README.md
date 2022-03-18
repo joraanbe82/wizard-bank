@@ -1,8 +1,8 @@
-# Introducción a Create React App
+## Introducción a Create React App ⚛️
 
 Este proyecto fue iniciado con Create React App. [Create React App](https://github.com/facebook/create-react-app).
 
-## Descripción
+## Descripción del proyecto ✒️
 
 El proyecto está configurado con el propósito de erradicar las excepciones en tiempo de ejecución.  
 La comprobación estática nos ayuda a detectar una cantidad significativa de posibles errores de ejecución en tiempo de compilación.
@@ -15,15 +15,15 @@ Utilizaremos el pre-commit hook para ejecutar nuestro script de validación para
 
 Otro beneficio de usar lint-staged es que hace automáticamente el git add en los archivos modificados. Así, si estamos haciendo prettier - write o eslint - fix, no tenemos que escenificar los cambios manualmente.
 
-## Scripts disponibles
+## Scripts disponibles ⌨️
 
 En el directorio del proyecto, puedes ejecutar:
 
-### `npm install`�
+### `npm install` 🛠️
 
 Ejecuta este comando para hacer la instalación de las dependencias
 
-### `npm start` �️
+### `npm start` 🏁
 
 Ejecuta la aplicación en el modo de desarrollo.\
 Abre [http://localhost:3000](http://localhost:3000) para verla en el navegador.
@@ -31,11 +31,11 @@ Abre [http://localhost:3000](http://localhost:3000) para verla en el navegador.
 La página se recargará si haces ediciones.\
 También verás cualquier error de lint en la consola.
 
-### `npm test`
+### `npm test` ⚗️
 
 Ejecuta la aplicación en modo test
 
-### `yarn build` �
+### `npm build` 🏗️
 
 Construye la aplicación para producción en la carpeta `build`.\
 Agrupa correctamente React en modo de producción y optimiza la compilación para obtener el mejor rendimiento.
@@ -45,7 +45,7 @@ Tu aplicación está lista para ser desplegada.
 
 Consulta la sección sobre [deployment](https://facebook.github.io/create-react-app/docs/deployment) para más información.
 
-## Construido con �️
+## Construido con 📚
 
 - [React](https://es.reactjs.org/) - El framework web usado
 - [Typescript](https://www.typescriptlang.org/) - Super set para tipado fuerte de javascript
@@ -56,7 +56,7 @@ Consulta la sección sobre [deployment](https://facebook.github.io/create-react-
 - [Axios](https://github.com/axios/axios) - Cliente HTTP basado en promesas para el navegador
 - [Notiflix](https://notiflix.github.io/) - Librería para notificaciones
 
-## Autor ✒️
+## Autor 🧑🏻‍🚀
 
 - **Raúl Andrade** - _Desarrollador front end_ - [randrade](https://www.linkedin.com/in/raul-andrade82/)
 

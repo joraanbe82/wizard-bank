@@ -5,10 +5,14 @@ Este proyecto fue iniciado con Create React App. [Create React App](https://gith
 ## Descripción
 
 El proyecto está configurado con el propósito de erradicar las excepciones en tiempo de ejecución.  
-La comprobación estática nos ayuda a detectar una cantidad significativa de posibles errores de ejecución en tiempo de compilación.  
+La comprobación estática nos ayuda a detectar una cantidad significativa de posibles errores de ejecución en tiempo de compilación.
+
 Vamos a emplear Typescript y Eslint junto con Prettier para detectar tantos problemas como sea posible. Esto ahorra muchos problemas en la producción.
-Finalmente usaremos Husky que nos dará acceso a git hooks, que son unos scripts que se ejecutan automáticamente cada vez que un evento en particula ocurre en un repositorio de Git.  
+
+Finalmente usaremos Husky que nos dará acceso a git hooks, que son unos scripts que se ejecutan automáticamente cada vez que un evento en particula ocurre en un repositorio de Git.
+
 Utilizaremos el pre-commit hook para ejecutar nuestro script de validación para que los desarrolladores no puedan confirmar ningún código sin pasar la validación y Lint staged se encargará de hacer todas las revisiones ejecutando los comandos npm run format:fix y npm run validate.
+
 Otro beneficio de usar lint-staged es que hace automáticamente el git add en los archivos modificados. Así, si estamos haciendo prettier - write o eslint - fix, no tenemos que escenificar los cambios manualmente.
 
 ## Scripts disponibles

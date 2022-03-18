@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { ChangeEvent, MouseEventHandler } from 'react'
 
-function ProductInformation() {
+type Props = {
+	handleNext: () => void
+	handleChange: ChangeEvent<HTMLInputElement>
+}
+function ProductInformation({ handleNext, handleChange }: Props) {
 	return (
 		<section>
 			<header>
-				Bienvenido a tu
+				<h2>Bienvenido a tu</h2>
 				<h3>Cuenta Corriente OpenClose</h3>
 			</header>
-			s
+
 			<div>
 				Durante el proceso vamos a necesitar que nos facilites una serie de
 				datos, no te preocupes ! es algo muy sencillo de hacer !
@@ -18,11 +22,21 @@ function ProductInformation() {
 					necesitamos que acepte que tratemos sus datos según la politica de
 					protección de datos.
 				</p>
-				<label htmlFor='check-id'>
-					<input type='checkbox' id='check-id' />
-				</label>
+				<p>
+					<label htmlFor='check-id'>
+						<input
+							type='checkbox'
+							id='check-id'
+							name='accept-terms'
+							onChange={e => handleChange}
+						/>
+					</label>
+					Soy mayor de edad, acepto los términos.
+				</p>
 			</div>
-			<button type='button'>Next</button>
+			<button type='button' onClick={() => handleNext()}>
+				Next
+			</button>
 		</section>
 	)
 }

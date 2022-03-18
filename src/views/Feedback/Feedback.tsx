@@ -1,6 +1,10 @@
 import React from 'react'
 
-function Feedback() {
+type Props = {
+	handleReset: () => void
+}
+
+function Feedback({ handleReset }: Props) {
 	return (
 		<section>
 			<h3>Feedback</h3>
@@ -9,7 +13,9 @@ function Feedback() {
 				KO, lo sentimos no se ha podido completar el registro, inténtelo de
 				nuevo mas tarde
 			</div>
-			<button type='button'>Volver</button>
+			<button type='button' onClick={() => handleReset()}>
+				Inicio
+			</button>
 		</section>
 	)
 }

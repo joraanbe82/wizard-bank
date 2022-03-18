@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, MouseEventHandler, useState } from 'react'
+
+import Container from '@mui/material/Container'
 
 import ProductInformation from './views/ProductInformation/ProductInformation'
 import Form from './views/Form/Form'
@@ -8,25 +10,23 @@ import './App.css'
 
 function App() {
 	const [activeStep, setActiveStep] = useState<number>(0)
-	const [skipped, setSkipped] = React.useState(new Set<number>())
-
-	const isStepOptional = (step: number) => step === 1
-
-	const isStepSkipped = (step: number) => skipped.has(step)
+	const [form, setForm] = useState({})
 
 	const handleNext = () => {
-		let newSkipped = skipped
-		if (isStepSkipped(activeStep)) {
-			newSkipped = new Set(newSkipped.values())
-			newSkipped.delete(activeStep)
-		}
+		setActiveStep((prevActiveStep: number) => prevActiveStep + 1)
+	}
 
-		setActiveStep(prevActiveStep => prevActiveStep + 1)
-		setSkipped(newSkipped)
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+		const value =
+			e.target.type === 'checkbox' ? e.target.checked : e.target.value
+		setForm({
+			...form,
+			[e.target.name]: value,
+		})
 	}
 
 	const handleBack = () => {
-		setActiveStep(prevActiveStep => prevActiveStep - 1)
+		setActiveStep((prevActiveStep: number) => prevActiveStep - 1)
 	}
 	/** ¿Usar con el boton confimrar? */
 	const handleReset = () => {
@@ -34,15 +34,27 @@ function App() {
 	}
 
 	return (
-		<>
-			<section className='App'>App component</section>
+		<Container maxWidth={false}>
 			<section>
-				<ProductInformation />
-				<Form />
-				<Feedback />
 				<Stepper activeStep={activeStep} />
 			</section>
-		</>
+			<section>
+				{activeStep === 0 && (
+					<ProductInformation
+						handleChange={handleChange}
+						handleNext={handleNext}
+					/>
+				)}
+				{activeStep === 1 && (
+					<Form
+						// handleChange={handleChange}
+						handleNext={handleNext}
+						handleBack={handleBack}
+					/>
+				)}
+				{activeStep === 2 && <Feedback handleReset={handleReset} />}
+			</section>
+		</Container>
 	)
 }
 

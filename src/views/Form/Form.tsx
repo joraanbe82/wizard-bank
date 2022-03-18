@@ -1,6 +1,11 @@
 import React from 'react'
 
-function Form() {
+type Props = {
+	handleNext: () => void
+	handleBack: () => void
+}
+
+function Form({ handleNext, handleBack }: Props) {
 	return (
 		<section>
 			<h4>Formulario</h4>
@@ -9,7 +14,12 @@ function Form() {
 				<input type='password' placeholder='Repetir contraseña' />
 				<textarea maxLength={255} placeholder='Pista' />
 			</div>
-			<button type='button'>Next</button>
+			<button type='button' onClick={() => handleNext()}>
+				Next
+			</button>
+			<button type='button' onClick={() => handleBack()}>
+				Back
+			</button>
 		</section>
 	)
 }

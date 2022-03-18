@@ -1,2 +1,4 @@
-./reportWebVitals.ts
-./README.md
+reportWebVitals.ts
+README.md
+node_modules/
+tsconfig.json

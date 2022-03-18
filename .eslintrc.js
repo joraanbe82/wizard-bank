@@ -7,8 +7,11 @@ module.exports = {
 		'plugin:react/recommended',
 		'airbnb',
 		'plugin:security/recommended',
+		'plugin:import/typescript',
+
 		'prettier', // siempre el último
 	],
+
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaFeatures: {
@@ -18,5 +21,11 @@ module.exports = {
 		sourceType: 'module',
 	},
 	plugins: ['react', '@typescript-eslint', 'security'],
-	rules: {},
+	rules: {
+		'import/extensions': [
+			'error',
+			'ignorePackages',
+			{ ts: 'never', tsx: 'never' },
+		],
+	},
 }

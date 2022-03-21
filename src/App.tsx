@@ -2,18 +2,24 @@ import React, { ChangeEvent, MouseEventHandler, useState } from 'react'
 
 import Container from '@mui/material/Container'
 
+import { useAppDispatch, useAppSelector } from './store/hooks'
+
 import ProductInformation from './views/ProductInformation/ProductInformation'
 import Form from './views/Form/Form'
 import Feedback from './views/Feedback/Feedback'
 import Stepper from './components/Stepper/Stepper'
 import './App.css'
+import { ActionTypes } from './action-types'
 
 function App() {
+	const dispatch = useAppDispatch()
+	const currentPage = useAppSelector(state => state.stepper.currentPage)
 	const [activeStep, setActiveStep] = useState<number>(0)
 	const [form, setForm] = useState({})
 
 	const handleNext = () => {
-		setActiveStep((prevActiveStep: number) => prevActiveStep + 1)
+		// setActiveStep((prevActiveStep: number) => prevActiveStep + 1)
+		dispatch({ type: ActionTypes.NEXT_STEP, payload: currentPage + 1 })
 	}
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

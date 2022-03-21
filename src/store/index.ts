@@ -3,13 +3,15 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { ThunkAction, Action } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
 
+import { StepperReducer } from '../reducers/StepperReducer'
+
 import rootSaga from './sagas'
 
 export type GlobalState = ReturnType<typeof rootReducer>
 
 const sagaMiddleware = createSagaMiddleware()
 
-export const rootReducer = combineReducers({})
+export const rootReducer = combineReducers({ stepper: StepperReducer })
 
 const store = createStore(
 	rootReducer,

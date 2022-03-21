@@ -8,6 +8,8 @@ module.exports = {
 		'plugin:react/recommended',
 		'airbnb',
 		'plugin:security/recommended',
+		'eslint:recommended',
+		'plugin:import/recommended',
 		'plugin:import/typescript',
 		'prettier', // siempre el último
 	],
@@ -34,5 +36,6 @@ module.exports = {
 		'react/react-in-jsx-scope': 'off',
 		'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
 		'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+		'default-param-last': 'warn',
 	},
 }

@@ -14,4 +14,9 @@ interface ResetSteps {
 	payload: number
 }
 
-export type StepperActions = NextStep | BackStep | ResetSteps
+interface AcceptTerms {
+	type: ActionTypes.ACCEPT_TERMS
+	payload: boolean
+}
+
+export type StepperActions = NextStep | BackStep | ResetSteps | AcceptTerms

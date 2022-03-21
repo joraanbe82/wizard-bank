@@ -3,10 +3,12 @@ import { ActionTypes } from '../action-types'
 
 export type stepperState = {
 	currentPage: number
+	terms: boolean
 }
 
 const initialState = {
 	currentPage: 0,
+	terms: false,
 }
 
 export const StepperReducer = (
@@ -16,11 +18,14 @@ export const StepperReducer = (
 ): stepperState => {
 	switch (action.type) {
 		case ActionTypes.NEXT_STEP:
-			return { currentPage: action.payload }
+			return { ...state, currentPage: action.payload }
 		case ActionTypes.BACK_STEP:
-			return { currentPage: action.payload }
+			return { ...state, currentPage: action.payload }
 		case ActionTypes.RESET_STEPS:
-			return { currentPage: 0 }
+			return { ...state, currentPage: 0 }
+		case ActionTypes.ACCEPT_TERMS:
+			return { ...state, terms: action.payload }
+
 		default:
 			return state
 	}

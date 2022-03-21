@@ -25,7 +25,14 @@ interface SetConfirmPassword {
 	type: ActionTypes.CONFIRM_PASSWORD
 	payload: string
 }
-
+interface SetErrorPassword {
+	type: ActionTypes.ERROR_PASSWORD
+	payload: boolean
+}
+interface SetErrorSamePassword {
+	type: ActionTypes.ERROR_SAME_PASSWORD
+	payload: boolean
+}
 interface SetClue {
 	type: ActionTypes.SET_CLUE
 	payload: string
@@ -37,4 +44,6 @@ export type StepperActions =
 	| AcceptTerms
 	| SetPassword
 	| SetConfirmPassword
+	| SetErrorPassword
+	| SetErrorSamePassword
 	| SetClue

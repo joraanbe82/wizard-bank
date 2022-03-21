@@ -6,6 +6,8 @@ export type stepperState = {
 	terms: boolean
 	pass: string
 	confirmPass: string
+	errorPass: boolean
+	errorSamePass: boolean
 	clue: string
 }
 
@@ -14,6 +16,8 @@ const initialState = {
 	terms: false,
 	pass: '',
 	confirmPass: '',
+	errorPass: false,
+	errorSamePass: false,
 	clue: '',
 }
 
@@ -32,9 +36,23 @@ export const StepperReducer = (
 		case ActionTypes.ACCEPT_TERMS:
 			return { ...state, terms: action.payload }
 		case ActionTypes.SET_PASSWORD:
-			return { ...state, pass: action.payload }
+			return {
+				...state,
+				pass: action.payload,
+				errorPass: false,
+				errorSamePass: false,
+			}
 		case ActionTypes.CONFIRM_PASSWORD:
-			return { ...state, confirmPass: action.payload }
+			return {
+				...state,
+				confirmPass: action.payload,
+				errorPass: false,
+				errorSamePass: false,
+			}
+		case ActionTypes.ERROR_PASSWORD:
+			return { ...state, errorPass: action.payload }
+		case ActionTypes.ERROR_SAME_PASSWORD:
+			return { ...state, errorSamePass: true }
 		case ActionTypes.SET_CLUE:
 			return { ...state, clue: action.payload }
 

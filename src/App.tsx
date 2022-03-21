@@ -41,7 +41,7 @@ function App() {
 			<section>
 				{activeStep === 0 && (
 					<ProductInformation
-						handleChange={handleChange}
+						// handleChange={handleChange}
 						handleNext={handleNext}
 					/>
 				)}

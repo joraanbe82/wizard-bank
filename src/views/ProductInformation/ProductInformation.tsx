@@ -2,9 +2,9 @@ import React, { ChangeEvent, MouseEventHandler } from 'react'
 
 type Props = {
 	handleNext: () => void
-	handleChange: ChangeEvent<HTMLInputElement>
+	// handleChange: ChangeEvent<HTMLInputElement>
 }
-function ProductInformation({ handleNext, handleChange }: Props) {
+function ProductInformation({ handleNext }: Props) {
 	return (
 		<section>
 			<header>
@@ -28,7 +28,7 @@ function ProductInformation({ handleNext, handleChange }: Props) {
 							type='checkbox'
 							id='check-id'
 							name='accept-terms'
-							onChange={e => handleChange}
+							// onChange={e => handleChange}
 						/>
 					</label>
 					Soy mayor de edad, acepto los términos.

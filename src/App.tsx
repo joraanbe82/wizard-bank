@@ -1,64 +1,43 @@
-import React, { ChangeEvent, MouseEventHandler, useState } from 'react'
-
+import React from 'react'
 import Container from '@mui/material/Container'
+import { ActionTypes } from './action-types'
 
 import { useAppDispatch, useAppSelector } from './store/hooks'
 
-import ProductInformation from './views/ProductInformation/ProductInformation'
-import Form from './views/Form/Form'
 import Feedback from './views/Feedback/Feedback'
+import Form from './views/Form/Form'
+import ProductInformation from './views/ProductInformation/ProductInformation'
 import Stepper from './components/Stepper/Stepper'
+
 import './App.css'
-import { ActionTypes } from './action-types'
 
 function App() {
 	const dispatch = useAppDispatch()
 	const currentPage = useAppSelector(state => state.stepper.currentPage)
-	const [activeStep, setActiveStep] = useState<number>(0)
-	const [form, setForm] = useState({})
 
 	const handleNext = () => {
-		// setActiveStep((prevActiveStep: number) => prevActiveStep + 1)
 		dispatch({ type: ActionTypes.NEXT_STEP, payload: currentPage + 1 })
 	}
 
-	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-		const value =
-			e.target.type === 'checkbox' ? e.target.checked : e.target.value
-		setForm({
-			...form,
-			[e.target.name]: value,
-		})
+	const handleBack = () => {
+		dispatch({ type: ActionTypes.BACK_STEP, payload: currentPage - 1 })
 	}
 
-	const handleBack = () => {
-		setActiveStep((prevActiveStep: number) => prevActiveStep - 1)
-	}
-	/** ¿Usar con el boton confimrar? */
 	const handleReset = () => {
-		setActiveStep(0)
+		dispatch({ type: ActionTypes.RESET_STEPS, payload: 0 })
 	}
 
 	return (
 		<Container maxWidth={false}>
 			<section>
-				<Stepper activeStep={activeStep} />
+				<Stepper activeStep={currentPage} />
 			</section>
 			<section>
-				{activeStep === 0 && (
-					<ProductInformation
-						// handleChange={handleChange}
-						handleNext={handleNext}
-					/>
+				{currentPage === 0 && <ProductInformation handleNext={handleNext} />}
+				{currentPage === 1 && (
+					<Form handleNext={handleNext} handleBack={handleBack} />
 				)}
-				{activeStep === 1 && (
-					<Form
-						// handleChange={handleChange}
-						handleNext={handleNext}
-						handleBack={handleBack}
-					/>
-				)}
-				{activeStep === 2 && <Feedback handleReset={handleReset} />}
+				{currentPage === 2 && <Feedback handleReset={handleReset} />}
 			</section>
 		</Container>
 	)

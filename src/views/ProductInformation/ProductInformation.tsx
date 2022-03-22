@@ -37,6 +37,7 @@ function ProductInformation({ handleNext }: Props) {
 				<p>
 					<label htmlFor='check-id'>
 						<input
+							checked={terms}
 							type='checkbox'
 							id='check-id'
 							name='accept-terms'

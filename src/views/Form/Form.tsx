@@ -71,17 +71,14 @@ function Form({ handleNext, handleBack }: Props) {
 			isDataValid = false
 		}
 
-		console.log({ isDataValid })
-
 		if (!isDataValid) {
 			dispatch({ type: ActionTypes.ERROR_PASSWORD, payload: true })
 		}
 		if (!arePasswordsEquals) {
 			dispatch({ type: ActionTypes.ERROR_SAME_PASSWORD, payload: true })
 		}
-		if (isDataValid) {
-			// TODO validar que se guarda correctamente y se puede habilitar el boton
-			// de siguiente
+		if (isDataValid && arePasswordsEquals) {
+			handleNext()
 		}
 	}
 
@@ -135,13 +132,10 @@ function Form({ handleNext, handleBack }: Props) {
 						padding: '3px',
 					}}
 				/>
-				<button type='button' onClick={() => saveData()}>
-					Guardar
-				</button>
 			</div>
 			<button
 				type='button'
-				onClick={() => handleNext()}
+				onClick={() => saveData()}
 				disabled={!isFormValid()}>
 				Next
 			</button>

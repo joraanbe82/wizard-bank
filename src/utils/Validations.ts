@@ -3,6 +3,7 @@ function ValidatePassword(password: string) {
 	return validator.test(password)
 }
 
+// return 0 if are equals, return -1 | 1 if doesn't are equals
 function ComparePasswords(pass: string, confirmPass: string) {
 	const compare = pass.localeCompare(confirmPass)
 	return compare

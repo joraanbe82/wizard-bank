@@ -37,12 +37,7 @@ function Form({ handleNext, handleBack }: Props) {
 
 	const isFormValid = () => {
 		if (pass && confirmPass && clue) {
-			return (
-				pass.length >= 8 &&
-				confirmPass.length >= 8 &&
-				clue.length > 0 &&
-				clue.length <= 250
-			)
+			return pass.length >= 8 && confirmPass.length >= 8 && clue.length > 0
 		}
 		return false
 	}
@@ -53,18 +48,12 @@ function Form({ handleNext, handleBack }: Props) {
 
 	const saveData = () => {
 		let isDataValid = true
-		let arePasswordsEquals = true
+		const arePasswordsEquals = true
 		if (pass.length < 8 || confirmPass.length < 8) {
 			isDataValid = false
 			// console.log('menos de 8 caracteres')
 		}
 
-		if (pass.length >= 8 && confirmPass.length >= 8) {
-			if (ComparePasswords(pass, confirmPass) === 1) {
-				// console.log('passwords no iguales')
-				arePasswordsEquals = false
-			}
-		}
 		if (!ValidatePassword(pass)) {
 			isDataValid = false
 		}
@@ -72,11 +61,16 @@ function Form({ handleNext, handleBack }: Props) {
 		if (!isDataValid) {
 			dispatch({ type: ActionTypes.ERROR_PASSWORD, payload: true })
 		}
-		if (!arePasswordsEquals) {
-			dispatch({ type: ActionTypes.ERROR_SAME_PASSWORD, payload: true })
-		}
+		// if (!arePasswordsEquals) {
+		// 	dispatch({ type: ActionTypes.ERROR_SAME_PASSWORD, payload: true })
+		// }
 		if (isDataValid && arePasswordsEquals) {
 			handleNext()
+		}
+	}
+	const validatePasswords = (password: string, confirmPassword: string) => {
+		if (ComparePasswords(password, confirmPassword) !== 0) {
+			dispatch({ type: ActionTypes.ERROR_SAME_PASSWORD, payload: true })
 		}
 	}
 
@@ -96,6 +90,7 @@ function Form({ handleNext, handleBack }: Props) {
 							payload: e.target.value,
 						})
 					}
+					value={pass}
 					fullWidth
 				/>
 				<TextField
@@ -111,6 +106,8 @@ function Form({ handleNext, handleBack }: Props) {
 						})
 					}
 					fullWidth
+					value={confirmPass}
+					onBlur={() => validatePasswords(pass, confirmPass)}
 				/>
 				<TextareaAutosize
 					maxLength={255}

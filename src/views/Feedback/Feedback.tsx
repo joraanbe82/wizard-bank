@@ -19,6 +19,7 @@ function Feedback({ handleReset }: Props) {
 	const dispatch = useAppDispatch()
 	const password = useAppSelector(state => state.stepper.pass)
 	const complete = useAppSelector(state => state.stepper.complete)
+	const pending = useAppSelector(state => state.stepper.pending)
 
 	useEffect(() => {
 		dispatch({ type: ActionTypes.COMPLETE_PROCCESS, payload: password })
@@ -26,15 +27,19 @@ function Feedback({ handleReset }: Props) {
 
 	return (
 		<section>
-			<ResponseFeedback complete={complete} />
+			{!pending && (
+				<>
+					<ResponseFeedback complete={complete} />
 
-			<StyledButton
-				type='button'
-				variant='outlined'
-				endIcon={<ArrowForwardIos stroke={Colors.oficialRed} />}
-				onClick={() => handleReset()}>
-				Inicio
-			</StyledButton>
+					<StyledButton
+						type='button'
+						variant='outlined'
+						endIcon={<ArrowForwardIos stroke={Colors.oficialRed} />}
+						onClick={() => handleReset()}>
+						Inicio
+					</StyledButton>
+				</>
+			)}
 		</section>
 	)
 }

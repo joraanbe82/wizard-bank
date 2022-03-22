@@ -11,7 +11,7 @@ export type stepperState = {
 	errorSamePass: boolean
 	clue: string
 	complete: null | boolean
-	pending: boolean
+	pending: null | boolean
 }
 
 const initialState = {
@@ -23,7 +23,7 @@ const initialState = {
 	errorSamePass: false,
 	clue: '',
 	complete: null,
-	pending: false,
+	pending: null,
 }
 
 export const StepperReducer = (
@@ -64,6 +64,8 @@ export const StepperReducer = (
 			return { ...state, complete: action.payload }
 		case ActionTypes.COMPLETE_ERROR:
 			return { ...state, complete: action.payload }
+		case ActionTypes.PENDING_PROCCESS:
+			return { ...state, pending: action.payload }
 		default:
 			return state
 	}

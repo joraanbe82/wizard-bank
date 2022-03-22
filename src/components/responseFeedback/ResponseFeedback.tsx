@@ -2,6 +2,7 @@ import React from 'react'
 
 import DoneAll from '@mui/icons-material/DoneAll'
 import ErrorOutline from '@mui/icons-material/ErrorOutline'
+
 import { Colors } from '../../styles/Colors'
 import { H3Styled, Title } from './StyledResponse'
 

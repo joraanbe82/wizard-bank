@@ -37,6 +37,10 @@ interface SetClue {
 	type: ActionTypes.SET_CLUE
 	payload: string
 }
+interface PendingProccess {
+	type: ActionTypes.PENDING_PROCCESS
+	payload: boolean
+}
 interface CompleteProccess {
 	type: ActionTypes.COMPLETE_PROCCESS
 	payload: string
@@ -59,6 +63,7 @@ export type StepperActions =
 	| SetErrorPassword
 	| SetErrorSamePassword
 	| SetClue
+	| PendingProccess
 	| CompleteProccess
 	| CompleteSuccess
 	| CompleteError

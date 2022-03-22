@@ -21,17 +21,10 @@ function Form({ handleNext, handleBack }: Props) {
 	const errorPass = useAppSelector(state => state.stepper.errorPass)
 	const errorSamePass = useAppSelector(state => state.stepper.errorSamePass)
 
-	const errorMessageText = () => {
-		let errorMessage = ''
-		if (errorPass) {
-			errorMessage =
-				'La contraseña debe de tener al menos 1 mayúscula, 1 número y entre 8 y 24 caracteres'
-			return errorMessage
-		}
-		if (errorSamePass) {
-			errorMessage = 'Las contraseñas deben de ser iguales'
-			return errorMessage
-		}
+	const errorMessageReducer = () => {
+		if (errorSamePass) return 'Las contraseñas deben de ser iguales'
+		if (errorPass)
+			return 'La contraseña debe de tener al menos una letra mayúscula, un número y entre 8 y 24 carácteres'
 		return null
 	}
 
@@ -48,10 +41,9 @@ function Form({ handleNext, handleBack }: Props) {
 
 	const saveData = () => {
 		let isDataValid = true
-		const arePasswordsEquals = true
+
 		if (pass.length < 8 || confirmPass.length < 8) {
 			isDataValid = false
-			// console.log('menos de 8 caracteres')
 		}
 
 		if (!ValidatePassword(pass)) {
@@ -61,14 +53,12 @@ function Form({ handleNext, handleBack }: Props) {
 		if (!isDataValid) {
 			dispatch({ type: ActionTypes.ERROR_PASSWORD, payload: true })
 		}
-		// if (!arePasswordsEquals) {
-		// 	dispatch({ type: ActionTypes.ERROR_SAME_PASSWORD, payload: true })
-		// }
-		if (isDataValid && arePasswordsEquals) {
+
+		if (isDataValid) {
 			handleNext()
 		}
 	}
-	const validatePasswords = (password: string, confirmPassword: string) => {
+	const passwordsEquals = (password: string, confirmPassword: string) => {
 		if (ComparePasswords(password, confirmPassword) !== 0) {
 			dispatch({ type: ActionTypes.ERROR_SAME_PASSWORD, payload: true })
 		}
@@ -76,11 +66,15 @@ function Form({ handleNext, handleBack }: Props) {
 
 	return (
 		<section>
-			<h4>Formulario</h4>
+			<h4>Creación de tu contraseña maestra</h4>
+			<h6>
+				Recuerda que la contraseña debe de tener al menos una letra mayúscula,
+				un número y entre 8 y 24 carácteres para que podamos continuar.
+			</h6>
 			<div>
 				<TextField
 					error={errorPass || errorSamePass}
-					helperText={errorMessageText()}
+					helperText={errorMessageReducer()}
 					variant='outlined'
 					label='Contraseña'
 					type='password'
@@ -95,7 +89,7 @@ function Form({ handleNext, handleBack }: Props) {
 				/>
 				<TextField
 					error={errorPass || errorSamePass}
-					helperText={errorMessageText()}
+					helperText={errorMessageReducer()}
 					variant='outlined'
 					label='Repetir Contraseña'
 					type='password'
@@ -107,7 +101,7 @@ function Form({ handleNext, handleBack }: Props) {
 					}
 					fullWidth
 					value={confirmPass}
-					onBlur={() => validatePasswords(pass, confirmPass)}
+					onBlur={() => passwordsEquals(pass, confirmPass)}
 				/>
 				<TextareaAutosize
 					maxLength={255}
@@ -120,6 +114,7 @@ function Form({ handleNext, handleBack }: Props) {
 							payload: e.target.value,
 						})
 					}
+					value={clue}
 					style={{
 						width: '100%',
 						borderRadius: '5px',
@@ -133,10 +128,10 @@ function Form({ handleNext, handleBack }: Props) {
 				type='button'
 				onClick={() => saveData()}
 				disabled={!isFormValid()}>
-				Next
+				Siguiente
 			</button>
 			<button type='button' onClick={() => handleBack()}>
-				Back
+				Volver
 			</button>
 		</section>
 	)

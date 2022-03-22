@@ -12,11 +12,14 @@ type FormParams = {
 function* fetchForm(action: FormParams) {
 	try {
 		Loading.pulse()
+		yield put({ type: ActionTypes.PENDING_PROCCESS, payload: true })
 		yield call(submitForm, action.payload)
 		yield put({ type: ActionTypes.COMPLETE_SUCCESS, payload: true })
+		yield put({ type: ActionTypes.PENDING_PROCCESS, payload: false })
 		Loading.remove()
 	} catch {
 		yield put({ type: ActionTypes.COMPLETE_ERROR, payload: false })
+		yield put({ type: ActionTypes.PENDING_PROCCESS, payload: false })
 		Loading.remove()
 	}
 }

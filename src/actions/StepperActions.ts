@@ -1,3 +1,4 @@
+import { JsxElement } from 'typescript'
 import { ActionTypes } from '../action-types'
 
 interface NextStep {
@@ -38,11 +39,11 @@ interface SetClue {
 }
 interface CompleteSuccess {
 	type: ActionTypes.COMPLETE_SUCCESS
-	payload: string
+	payload: boolean
 }
 interface CompleteError {
 	type: ActionTypes.COMPLETE_ERROR
-	payload: string
+	payload: boolean
 }
 export type StepperActions =
 	| NextStep

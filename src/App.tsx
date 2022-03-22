@@ -28,7 +28,7 @@ function App() {
 	}
 
 	return (
-		<Container maxWidth={false}>
+		<Container>
 			<section>
 				<Stepper activeStep={currentPage} />
 			</section>

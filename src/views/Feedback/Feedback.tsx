@@ -1,9 +1,16 @@
 import React, { useEffect } from 'react'
 import { Loading } from 'notiflix/build/notiflix-loading-aio'
 
+import Button from '@mui/material/Button'
+import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos'
+
 import { ActionTypes } from '../../action-types'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import submitForm from '../../service/api'
+import ResponseFeedback from '../../components/responseFeedback/ResponseFeedback'
+
+import { StyledButton } from './StyledFeedback'
+import { Colors } from '../../styles/Colors'
 
 type Props = {
 	handleReset: () => void
@@ -16,9 +23,6 @@ function Feedback({ handleReset }: Props) {
 	const dispatch = useAppDispatch()
 	const password = useAppSelector(state => state.stepper.pass)
 	const complete = useAppSelector(state => state.stepper.complete)
-	const completeSuccess = 'OK, el registro se ha completado satisfactoriamente'
-	const completeError =
-		'KO, lo sentimos no se ha podido completar el registro, inténtelo de	nuevo mas tarde'
 
 	useEffect(() => {
 		Loading.pulse()
@@ -29,14 +33,14 @@ function Feedback({ handleReset }: Props) {
 						// console.log('olé')
 						dispatch({
 							type: ActionTypes.COMPLETE_SUCCESS,
-							payload: completeSuccess,
+							payload: true,
 						})
 						Loading.remove()
 					}
 				})
 				.catch(error => {
 					// console.log('cachis en la mar')
-					dispatch({ type: ActionTypes.COMPLETE_ERROR, payload: completeError })
+					dispatch({ type: ActionTypes.COMPLETE_ERROR, payload: false })
 					Loading.remove()
 				})
 		}
@@ -44,15 +48,15 @@ function Feedback({ handleReset }: Props) {
 
 	return (
 		<section>
-			{complete && (
-				<>
-					<h3>Feedback</h3>
-					<div>{complete}</div>
-					<button type='button' onClick={() => handleReset()}>
-						Inicio
-					</button>
-				</>
-			)}
+			<ResponseFeedback complete={complete} />
+
+			<StyledButton
+				type='button'
+				variant='outlined'
+				endIcon={<ArrowForwardIos stroke={Colors.oficialRed} />}
+				onClick={() => handleReset()}>
+				Inicio
+			</StyledButton>
 		</section>
 	)
 }

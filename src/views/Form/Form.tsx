@@ -21,7 +21,7 @@ function Form({ handleNext, handleBack }: Props) {
 	const errorSamePass = useAppSelector(state => state.stepper.errorSamePass)
 
 	const errorMessageText = () => {
-		let errorMessage
+		let errorMessage = ''
 		if (errorPass) {
 			errorMessage =
 				'La contraseña debe de tener al menos 1 mayúscula, 1 número y entre 8 y 24 caracteres'

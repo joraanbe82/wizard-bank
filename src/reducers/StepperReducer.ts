@@ -1,3 +1,4 @@
+import { JsxElement } from 'typescript'
 import { StepperActions } from '../actions/StepperActions'
 import { ActionTypes } from '../action-types'
 
@@ -9,7 +10,7 @@ export type stepperState = {
 	errorPass: boolean
 	errorSamePass: boolean
 	clue: string
-	complete: string
+	complete: null | boolean
 }
 
 const initialState = {
@@ -20,7 +21,7 @@ const initialState = {
 	errorPass: false,
 	errorSamePass: false,
 	clue: '',
-	complete: '',
+	complete: null,
 }
 
 export const StepperReducer = (

@@ -9,6 +9,7 @@ export type stepperState = {
 	errorPass: boolean
 	errorSamePass: boolean
 	clue: string
+	complete: string
 }
 
 const initialState = {
@@ -19,6 +20,7 @@ const initialState = {
 	errorPass: false,
 	errorSamePass: false,
 	clue: '',
+	complete: '',
 }
 
 export const StepperReducer = (
@@ -55,7 +57,10 @@ export const StepperReducer = (
 			return { ...state, errorSamePass: true }
 		case ActionTypes.SET_CLUE:
 			return { ...state, clue: action.payload }
-
+		case ActionTypes.COMPLETE_SUCCESS:
+			return { ...state, complete: action.payload }
+		case ActionTypes.COMPLETE_ERROR:
+			return { ...state, complete: action.payload }
 		default:
 			return state
 	}

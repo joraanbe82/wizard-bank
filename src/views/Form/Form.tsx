@@ -55,19 +55,16 @@ function Form({ handleNext, handleBack }: Props) {
 		let arePasswordsEquals = true
 		if (pass.length < 8 || confirmPass.length < 8) {
 			isDataValid = false
-			console.log('menos de 8 caracteres')
+			// console.log('menos de 8 caracteres')
 		}
 
 		if (pass.length >= 8 && confirmPass.length >= 8) {
-			if (ComparePasswords(pass, confirmPass) === 0) {
-				console.log('passwords iguales')
-			} else {
-				console.log('password no iguales')
+			if (ComparePasswords(pass, confirmPass) === 1) {
+				// console.log('passwords no iguales')
 				arePasswordsEquals = false
 			}
 		}
 		if (!ValidatePassword(pass)) {
-			console.log('pass no pasa el regex')
 			isDataValid = false
 		}
 

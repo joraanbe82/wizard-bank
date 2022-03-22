@@ -36,6 +36,14 @@ interface SetClue {
 	type: ActionTypes.SET_CLUE
 	payload: string
 }
+interface CompleteSuccess {
+	type: ActionTypes.COMPLETE_SUCCESS
+	payload: string
+}
+interface CompleteError {
+	type: ActionTypes.COMPLETE_ERROR
+	payload: string
+}
 export type StepperActions =
 	| NextStep
 	| BackStep
@@ -46,3 +54,5 @@ export type StepperActions =
 	| SetErrorPassword
 	| SetErrorSamePassword
 	| SetClue
+	| CompleteSuccess
+	| CompleteError

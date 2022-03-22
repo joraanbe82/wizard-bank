@@ -11,6 +11,7 @@ type Props = {
 	handleNext: () => void
 	handleBack: () => void
 }
+// TODO refactorizar los states
 
 function Form({ handleNext, handleBack }: Props) {
 	const dispatch = useAppDispatch()

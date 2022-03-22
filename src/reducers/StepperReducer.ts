@@ -11,6 +11,7 @@ export type stepperState = {
 	errorSamePass: boolean
 	clue: string
 	complete: null | boolean
+	pending: boolean
 }
 
 const initialState = {
@@ -22,6 +23,7 @@ const initialState = {
 	errorSamePass: false,
 	clue: '',
 	complete: null,
+	pending: false,
 }
 
 export const StepperReducer = (

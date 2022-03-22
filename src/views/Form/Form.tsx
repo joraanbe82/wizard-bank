@@ -132,6 +132,7 @@ function Form({ handleNext, handleBack }: Props) {
 						padding: '3px',
 					}}
 				/>
+				<small>Máximo 255 carácteres</small>
 			</div>
 			<button
 				type='button'

@@ -32,7 +32,7 @@ export const StepperReducer = (
 		case ActionTypes.BACK_STEP:
 			return { ...state, currentPage: action.payload }
 		case ActionTypes.RESET_STEPS:
-			return { ...state, currentPage: 0 }
+			return initialState
 		case ActionTypes.ACCEPT_TERMS:
 			return { ...state, terms: action.payload }
 		case ActionTypes.SET_PASSWORD:

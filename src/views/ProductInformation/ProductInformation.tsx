@@ -1,7 +1,8 @@
-import React, { ChangeEvent, MouseEventHandler } from 'react'
+import React from 'react'
 
-import Button from '@mui/material/Button'
+import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos'
 
+import { NextButton } from '../../styles/StyledComponents'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { ActionTypes } from '../../action-types'
 import { Colors } from '../../styles/Colors'
@@ -25,8 +26,7 @@ function ProductInformation({ handleNext }: Props) {
 	return (
 		<section>
 			<header>
-				<h2>Bienvenido a tu</h2>
-				<h3>Cuenta Corriente OpenClose</h3>
+				<h2>Bienvenido a la Cuenta Corriente OpenClose</h2>
 			</header>
 
 			<div>
@@ -52,14 +52,14 @@ function ProductInformation({ handleNext }: Props) {
 					Soy mayor de edad, acepto los términos.
 				</p>
 			</div>
-			<Button
-				sx={{ background: Colors.oficialBlue }}
+			<NextButton
 				variant='contained'
 				type='button'
+				endIcon={<ArrowForwardIos />}
 				onClick={() => handleNext()}
 				disabled={!isFormValid()}>
-				Next
-			</Button>
+				Siguiente
+			</NextButton>
 		</section>
 	)
 }

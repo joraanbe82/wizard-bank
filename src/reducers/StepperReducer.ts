@@ -1,4 +1,3 @@
-import { JsxElement } from 'typescript'
 import { StepperActions } from '../actions/StepperActions'
 import { ActionTypes } from '../action-types'
 

@@ -1,13 +1,13 @@
 import React from 'react'
 
 import TextField from '@mui/material/TextField'
-import TextareaAutosize from '@mui/material/TextareaAutosize'
 
 import { ActionTypes } from '../../action-types'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { ComparePasswords } from '../../utils/Validations'
 
 import InputAdornmentComponent from './InputAdorment'
+import TextAreaComponent from './TextAreaComponent'
 
 interface FormProps {
 	pass: string
@@ -73,26 +73,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 					endAdornment: <InputAdornmentComponent showPass={showPass} />,
 				}}
 			/>
-			<TextareaAutosize
-				maxLength={255}
-				aria-label='text-area'
-				minRows={5}
-				placeholder='Pista para recuperar la contraseña'
-				onChange={e =>
-					dispatch({
-						type: ActionTypes.SET_CLUE,
-						payload: e.target.value,
-					})
-				}
-				value={clue}
-				style={{
-					width: '100%',
-					borderRadius: '5px',
-					border: '1px solid grey',
-					padding: '3px',
-				}}
-			/>
-			<small>Máximo 255 carácteres</small>
+			<TextAreaComponent clue={clue} />
 		</div>
 	)
 }

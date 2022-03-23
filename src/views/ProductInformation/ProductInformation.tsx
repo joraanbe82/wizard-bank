@@ -2,7 +2,7 @@ import React from 'react'
 
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos'
 
-import { NextButton } from '../../styles/StyledComponents'
+import { StepperButton } from '../../styles/StyledComponents'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { ActionTypes } from '../../action-types'
 import { Colors } from '../../styles/Colors'
@@ -49,17 +49,17 @@ function ProductInformation({ handleNext }: Props) {
 							onChange={e => handleTerms(e.target.checked)}
 						/>
 					</label>
-					Soy mayor de edad, acepto los términos.
+					Soy mayor de edad, acepto los términos y condiciones.
 				</p>
 			</div>
-			<NextButton
+			<StepperButton
 				variant='contained'
 				type='button'
 				endIcon={<ArrowForwardIos />}
 				onClick={() => handleNext()}
 				disabled={!isFormValid()}>
 				Siguiente
-			</NextButton>
+			</StepperButton>
 		</section>
 	)
 }

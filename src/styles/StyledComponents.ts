@@ -3,6 +3,6 @@ import styled from 'styled-components'
 import Button from '@mui/material/Button'
 import { Colors } from './Colors'
 
-export const NextButton = styled(Button)`
+export const StepperButton = styled(Button)`
 	background: ${Colors.oficialBlue};
 `

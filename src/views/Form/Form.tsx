@@ -6,7 +6,7 @@ import ArrowBackIos from '@mui/icons-material/ArrowBackIos'
 import { ActionTypes } from '../../action-types'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { ValidatePassword } from '../../utils/Validations'
-import { NextButton } from '../../styles/StyledComponents'
+import { StepperButton } from '../../styles/StyledComponents'
 
 import FormInputs from '../../components/formInputs/FormInputs'
 
@@ -63,21 +63,21 @@ function Form({ handleNext, handleBack }: Props) {
 
 			<FormInputs pass={pass} confirmPass={confirmPass} clue={clue} />
 			<section>
-				<NextButton
+				<StepperButton
 					startIcon={<ArrowBackIos />}
 					variant='contained'
 					type='button'
 					onClick={() => handleBack()}>
 					Volver
-				</NextButton>
-				<NextButton
+				</StepperButton>
+				<StepperButton
 					variant='contained'
 					type='button'
 					endIcon={<ArrowForwardIos />}
 					onClick={() => saveData()}
 					disabled={!isFormValid()}>
 					Siguiente
-				</NextButton>
+				</StepperButton>
 			</section>
 		</section>
 	)

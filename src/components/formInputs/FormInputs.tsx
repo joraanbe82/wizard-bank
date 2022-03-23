@@ -65,6 +65,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 				InputProps={{
 					endAdornment: <InputAdornmentComponent showPass={showPass} />,
 				}}
+				autoFocus
 			/>
 			<StyledTextField
 				error={errorPass || errorSamePass}

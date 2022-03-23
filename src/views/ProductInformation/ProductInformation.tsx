@@ -36,7 +36,6 @@ function ProductInformation({ handleNext }: Props) {
 				<h2>Bienvenido a la Cuenta Corriente OpenClose</h2>
 			</header>
 
-			<div />
 			<div>
 				<p>Estás a punto de contratar una nueva cuenta corriente OpenClose</p>
 				<p>

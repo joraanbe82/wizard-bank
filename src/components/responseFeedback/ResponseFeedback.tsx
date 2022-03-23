@@ -1,7 +1,7 @@
 import React from 'react'
 
-import DoneAll from '@mui/icons-material/DoneAll'
-import ErrorOutline from '@mui/icons-material/ErrorOutline'
+import DoneAllIcon from '@mui/icons-material/DoneAll'
+import ErrorIcon from '@mui/icons-material/Error'
 
 import { Colors } from '../../styles/Colors'
 import './ResponseFeedback.css'
@@ -18,13 +18,13 @@ function ResponseFeedback({ complete }: Props) {
 		<section className='responseSection'>
 			{complete ? (
 				<div className='responseTitle'>
-					<DoneAll stroke={Colors.green} />
+					<DoneAllIcon stroke={Colors.green} />
 					<h3>¡Cuenta OpenClose creada satisfactortiamente!</h3>
 				</div>
 			) : (
 				<div className='responseTitle'>
-					<ErrorOutline />
-					<h3>Ha abido un error</h3>
+					<ErrorIcon sx={{ color: Colors.oficialRed }} />
+					<h3>Ha ocurrido un error</h3>
 				</div>
 			)}
 			<div>{complete ? completeSuccess : completeError}</div>

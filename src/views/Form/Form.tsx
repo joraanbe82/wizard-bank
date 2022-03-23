@@ -19,10 +19,18 @@ function Form({ handleNext, handleBack }: Props) {
 	const pass = useAppSelector(state => state.form.pass)
 	const confirmPass = useAppSelector(state => state.form.confirmPass)
 	const clue = useAppSelector(state => state.form.clue)
+	const errorPass = useAppSelector(state => state.form.errorPass)
+	const errorSamePass = useAppSelector(state => state.form.errorSamePass)
 
 	const isFormValid = () => {
 		if (pass && confirmPass && clue) {
-			return pass.length >= 8 && confirmPass.length >= 8 && clue.length > 0
+			return (
+				pass.length >= 8 &&
+				confirmPass.length >= 8 &&
+				clue.length > 0 &&
+				!errorPass &&
+				!errorSamePass
+			)
 		}
 		return false
 	}

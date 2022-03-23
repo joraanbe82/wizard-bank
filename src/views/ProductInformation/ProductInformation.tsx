@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos'
+import FormControlLabel from '@mui/material/FormControlLabel'
 
-import { StepperButton } from '../../styles/StyledComponents'
+import { StepperButton, StyledCheckBox } from '../../styles/StyledComponents'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { ActionTypes } from '../../action-types'
-import { Colors } from '../../styles/Colors'
 
 type Props = {
 	handleNext: () => void
@@ -14,10 +14,10 @@ function ProductInformation({ handleNext }: Props) {
 	const dispatch = useAppDispatch()
 	const terms = useAppSelector(state => state.stepper.terms)
 
-	const handleTerms = (e: boolean) => {
+	const handleTerms = (event: ChangeEvent<HTMLInputElement>) => {
 		dispatch({
 			type: ActionTypes.ACCEPT_TERMS,
-			payload: e,
+			payload: event.target.checked,
 		})
 	}
 
@@ -40,16 +40,17 @@ function ProductInformation({ handleNext }: Props) {
 					protección de datos.
 				</p>
 				<p>
-					<label htmlFor='check-id'>
-						<input
-							checked={terms}
-							type='checkbox'
-							id='check-id'
-							name='accept-terms'
-							onChange={e => handleTerms(e.target.checked)}
-						/>
-					</label>
-					Soy mayor de edad, acepto los términos y condiciones.
+					<FormControlLabel
+						label='	Soy mayor de edad, acepto los términos y condiciones.'
+						control={
+							<StyledCheckBox
+								checked={terms}
+								id='check-id'
+								name='accept-terms'
+								onChange={handleTerms}
+							/>
+						}
+					/>
 				</p>
 			</div>
 			<StepperButton

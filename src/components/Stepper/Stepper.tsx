@@ -5,6 +5,8 @@ import Stepper from '@mui/material/Stepper'
 import Step from '@mui/material/Step'
 import StepLabel from '@mui/material/StepLabel'
 
+import { StyledStep } from './StyledStepper'
+
 const steps = ['Información', 'Formulario', 'Finalización']
 
 function HorizontalLinearStepper({ activeStep }: { activeStep: number }) {
@@ -12,9 +14,9 @@ function HorizontalLinearStepper({ activeStep }: { activeStep: number }) {
 		<Box sx={{ width: '100%' }}>
 			<Stepper activeStep={activeStep}>
 				{steps.map(label => (
-					<Step key={label}>
+					<StyledStep key={label}>
 						<StepLabel>{label}</StepLabel>
-					</Step>
+					</StyledStep>
 				))}
 			</Stepper>
 		</Box>

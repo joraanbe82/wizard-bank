@@ -1,5 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-
 import styled from 'styled-components'
 import { TextareaAutosize } from '@mui/material'
 import { Colors } from '../../styles/Colors'

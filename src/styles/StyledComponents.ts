@@ -11,6 +11,14 @@ export const StepperButton = styled(Button)`
 		background: #002b45d1;
 	}
 `
+export const CancelButton = styled(Button)`
+	color: ${Colors.oficialRed};
+	border: none;
+
+	&:hover {
+		border-color: ${Colors.oficialRed};
+	}
+`
 
 export const StyledTextField = styled(TextField)`
 	margin-top: 1rem;

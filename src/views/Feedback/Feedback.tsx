@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 
-import Button from '@mui/material/Button'
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos'
 
 import { ActionTypes } from '../../action-types'
@@ -8,8 +7,8 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks'
 
 import ResponseFeedback from '../../components/responseFeedback/ResponseFeedback'
 
-import { StyledButton } from './StyledFeedback'
 import { Colors } from '../../styles/Colors'
+import { CancelButton } from '../../styles/StyledComponents'
 
 import './Feedback.css'
 
@@ -34,13 +33,13 @@ function Feedback({ handleReset }: Props) {
 					<ResponseFeedback complete={complete} />
 
 					<div className='endButtonDiv'>
-						<StyledButton
+						<CancelButton
 							type='button'
 							variant='outlined'
 							endIcon={<ArrowForwardIos stroke={Colors.oficialRed} />}
 							onClick={() => handleReset()}>
 							Inicio
-						</StyledButton>
+						</CancelButton>
 					</div>
 				</>
 			)}

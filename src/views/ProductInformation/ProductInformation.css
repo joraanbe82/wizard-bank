@@ -1,0 +1,10 @@
+.buttonsDiv {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 3rem;
+}
+.infoContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}

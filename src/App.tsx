@@ -9,6 +9,8 @@ import Form from './views/Form/Form'
 import ProductInformation from './views/ProductInformation/ProductInformation'
 import Stepper from './components/Stepper/Stepper'
 
+import { StyledContainer } from './StyledApp'
+
 import './App.css'
 
 function App() {
@@ -29,16 +31,17 @@ function App() {
 
 	return (
 		<Container maxWidth='sm'>
-			<section className='stepperSection'>
-				<Stepper activeStep={currentPage} />
-			</section>
-			<section>
+			<StyledContainer>
+				<section className='stepperSection'>
+					<Stepper activeStep={currentPage} />
+				</section>
+
 				{currentPage === 0 && <ProductInformation handleNext={handleNext} />}
 				{currentPage === 1 && (
 					<Form handleNext={handleNext} handleBack={handleBack} />
 				)}
 				{currentPage === 2 && <Feedback handleReset={handleReset} />}
-			</section>
+			</StyledContainer>
 		</Container>
 	)
 }

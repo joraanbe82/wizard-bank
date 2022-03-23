@@ -51,6 +51,8 @@ export const FormReducer = (
 			return { ...state, errorSamePass: true }
 		case ActionTypes.SHOW_PASSWORD:
 			return { ...state, showPass: action.payload }
+		case ActionTypes.RESET_STEPS:
+			return initialState
 		default:
 			return state
 	}

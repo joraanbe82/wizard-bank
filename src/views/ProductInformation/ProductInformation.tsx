@@ -1,6 +1,10 @@
 import React, { ChangeEvent, MouseEventHandler } from 'react'
+
+import Button from '@mui/material/Button'
+
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { ActionTypes } from '../../action-types'
+import { Colors } from '../../styles/Colors'
 
 type Props = {
 	handleNext: () => void
@@ -15,8 +19,9 @@ function ProductInformation({ handleNext }: Props) {
 			payload: e,
 		})
 	}
-	console.log(terms)
+
 	const isFormValid = () => terms
+
 	return (
 		<section>
 			<header>
@@ -47,12 +52,14 @@ function ProductInformation({ handleNext }: Props) {
 					Soy mayor de edad, acepto los términos.
 				</p>
 			</div>
-			<button
+			<Button
+				sx={{ background: Colors.oficialBlue }}
+				variant='contained'
 				type='button'
 				onClick={() => handleNext()}
 				disabled={!isFormValid()}>
 				Next
-			</button>
+			</Button>
 		</section>
 	)
 }

@@ -38,13 +38,14 @@ function ProductInformation({ handleNext }: Props) {
 
 			<div />
 			<div>
+				<p>Estás a punto de contratar una nueva cuenta corriente OpenClose</p>
 				<p>
 					Durante el proceso vamos a necesitar que nos facilites una serie de
 					datos, no te preocupes ! es algo muy sencillo de hacer !
 				</p>
 				<p>
 					Para confirmar de que eres mayor de edad y podamos seguir el proceso
-					necesitamos que acepte que tratemos sus datos según la politica de
+					necesitamos que aceptes que tratemos tus datos según la politica de
 					protección de datos.
 				</p>
 				<p>

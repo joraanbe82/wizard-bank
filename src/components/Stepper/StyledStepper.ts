@@ -14,7 +14,7 @@ export const StyledStep = styled(Step)`
 		color: ${Colors.oficialRed};
 	}
 
-	// step label firs mobile
+	// step label first mobile
 	.css-ascpo7-MuiStepLabel-root {
 		flex-direction: column;
 	}

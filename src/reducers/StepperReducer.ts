@@ -11,6 +11,7 @@ export type stepperState = {
 	clue: string
 	complete: null | boolean
 	pending: null | boolean
+	showPass: boolean
 }
 
 const initialState = {
@@ -23,6 +24,7 @@ const initialState = {
 	clue: '',
 	complete: null,
 	pending: null,
+	showPass: false,
 }
 
 export const StepperReducer = (
@@ -65,6 +67,8 @@ export const StepperReducer = (
 			return { ...state, complete: action.payload }
 		case ActionTypes.PENDING_PROCCESS:
 			return { ...state, pending: action.payload }
+		case ActionTypes.SHOW_PASSWORD:
+			return { ...state, showPass: action.payload }
 		default:
 			return state
 	}

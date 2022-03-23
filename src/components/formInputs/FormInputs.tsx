@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
+
 import TextField from '@mui/material/TextField'
 import TextareaAutosize from '@mui/material/TextareaAutosize'
+import InputAdornment from '@mui/material/InputAdornment'
+import IconButton from '@mui/material/IconButton'
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
 
 import { ActionTypes } from '../../action-types'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
@@ -16,6 +21,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 	const dispatch = useAppDispatch()
 	const errorPass = useAppSelector(state => state.stepper.errorPass)
 	const errorSamePass = useAppSelector(state => state.stepper.errorSamePass)
+	const showPass = useAppSelector(state => state.stepper.showPass)
 
 	const errorMessageReducer = () => {
 		if (errorSamePass) return 'Las contraseñas deben de ser iguales'
@@ -29,6 +35,16 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 			dispatch({ type: ActionTypes.ERROR_SAME_PASSWORD, payload: true })
 		}
 	}
+
+	const handleClickShowPassword = () => {
+		dispatch({ type: ActionTypes.SHOW_PASSWORD, payload: !showPass })
+	}
+
+	const handleMouseDownPassword = (
+		event: React.MouseEvent<HTMLButtonElement>
+	) => {
+		event.preventDefault()
+	}
 	return (
 		<div>
 			<TextField
@@ -36,7 +52,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 				helperText={errorMessageReducer()}
 				variant='outlined'
 				label='Contraseña'
-				type='password'
+				type={showPass ? 'text' : 'password'}
 				onChange={e =>
 					dispatch({
 						type: ActionTypes.SET_PASSWORD,
@@ -45,13 +61,26 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 				}
 				value={pass}
 				fullWidth
+				InputProps={{
+					endAdornment: (
+						<InputAdornment position='end'>
+							<IconButton
+								aria-label='toggle password visibility'
+								onClick={handleClickShowPassword}
+								onMouseDown={handleMouseDownPassword}
+								edge='end'>
+								{showPass ? <VisibilityOff /> : <Visibility />}
+							</IconButton>
+						</InputAdornment>
+					),
+				}}
 			/>
 			<TextField
 				error={errorPass || errorSamePass}
 				helperText={errorMessageReducer()}
 				variant='outlined'
 				label='Repetir Contraseña'
-				type='password'
+				type={showPass ? 'text' : 'password'}
 				onChange={e =>
 					dispatch({
 						type: ActionTypes.CONFIRM_PASSWORD,
@@ -61,6 +90,19 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 				fullWidth
 				value={confirmPass}
 				onBlur={() => passwordsEquals(pass, confirmPass)}
+				InputProps={{
+					endAdornment: (
+						<InputAdornment position='end'>
+							<IconButton
+								aria-label='toggle password visibility'
+								onClick={handleClickShowPassword}
+								onMouseDown={handleMouseDownPassword}
+								edge='end'>
+								{showPass ? <VisibilityOff /> : <Visibility />}
+							</IconButton>
+						</InputAdornment>
+					),
+				}}
 			/>
 			<TextareaAutosize
 				maxLength={255}

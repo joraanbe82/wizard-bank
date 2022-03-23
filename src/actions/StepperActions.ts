@@ -53,6 +53,10 @@ interface CompleteError {
 	type: ActionTypes.COMPLETE_ERROR
 	payload: boolean
 }
+interface ShowPassword {
+	type: ActionTypes.SHOW_PASSWORD
+	payload: boolean
+}
 export type StepperActions =
 	| NextStep
 	| BackStep
@@ -67,3 +71,4 @@ export type StepperActions =
 	| CompleteProccess
 	| CompleteSuccess
 	| CompleteError
+	| ShowPassword

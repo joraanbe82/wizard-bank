@@ -3,9 +3,7 @@ import React, { useEffect } from 'react'
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos'
 import ArrowBackIos from '@mui/icons-material/ArrowBackIos'
 
-import { ActionTypes } from '../../action-types'
-import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { ValidatePassword } from '../../utils/Validations'
+import { useAppSelector } from '../../store/hooks'
 import { StepperButton } from '../../styles/StyledComponents'
 
 import FormInputs from '../../components/formInputs/FormInputs'
@@ -16,10 +14,8 @@ type Props = {
 	handleNext: () => void
 	handleBack: () => void
 }
-// TODO refactorizar los states
 
 function Form({ handleNext, handleBack }: Props) {
-	const dispatch = useAppDispatch()
 	const pass = useAppSelector(state => state.form.pass)
 	const confirmPass = useAppSelector(state => state.form.confirmPass)
 	const clue = useAppSelector(state => state.form.clue)
@@ -34,26 +30,6 @@ function Form({ handleNext, handleBack }: Props) {
 	useEffect(() => {
 		isFormValid()
 	}, [pass, confirmPass, clue])
-
-	const saveData = () => {
-		let isDataValid = true
-
-		if (pass.length < 8 || confirmPass.length < 8) {
-			isDataValid = false
-		}
-
-		if (!ValidatePassword(pass)) {
-			isDataValid = false
-		}
-
-		if (!isDataValid) {
-			dispatch({ type: ActionTypes.ERROR_PASSWORD, payload: true })
-		}
-
-		if (isDataValid) {
-			handleNext()
-		}
-	}
 
 	return (
 		<section>
@@ -76,7 +52,7 @@ function Form({ handleNext, handleBack }: Props) {
 					variant='contained'
 					type='button'
 					endIcon={<ArrowForwardIos />}
-					onClick={() => saveData()}
+					onClick={() => handleNext()}
 					disabled={!isFormValid()}>
 					Siguiente
 				</StepperButton>

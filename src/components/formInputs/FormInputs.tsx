@@ -1,10 +1,8 @@
 import React from 'react'
 
-import TextField from '@mui/material/TextField'
-
 import { ActionTypes } from '../../action-types'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { ComparePasswords } from '../../utils/Validations'
+import { ValidatePassword, ComparePasswords } from '../../utils/Validations'
 
 import InputAdornmentComponent from './InputAdorment'
 import TextAreaComponent from './TextAreaComponent'
@@ -30,12 +28,24 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 		return null
 	}
 
-	const passwordsEquals = (password: string, confirmPassword: string) => {
-		if (ComparePasswords(password, confirmPassword) !== 0) {
+	const isFormatValid = () => {
+		let isDataValid = true
+
+		if (pass.length < 8 || confirmPass.length < 8) {
+			isDataValid = false
+		}
+		if (ComparePasswords(pass, confirmPass) !== 0) {
 			dispatch({ type: ActionTypes.ERROR_SAME_PASSWORD, payload: true })
 		}
-	}
 
+		if (!ValidatePassword(pass)) {
+			isDataValid = false
+		}
+
+		if (!isDataValid) {
+			dispatch({ type: ActionTypes.ERROR_PASSWORD, payload: true })
+		}
+	}
 	return (
 		<div>
 			<StyledTextField
@@ -70,7 +80,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 				}
 				fullWidth
 				value={confirmPass}
-				onBlur={() => passwordsEquals(pass, confirmPass)}
+				onBlur={() => isFormatValid()}
 				InputProps={{
 					endAdornment: <InputAdornmentComponent showPass={showPass} />,
 				}}

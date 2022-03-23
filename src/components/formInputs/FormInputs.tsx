@@ -9,6 +9,8 @@ import { ComparePasswords } from '../../utils/Validations'
 import InputAdornmentComponent from './InputAdorment'
 import TextAreaComponent from './TextAreaComponent'
 
+import { StyledTextField } from '../../styles/StyledComponents'
+
 interface FormProps {
 	pass: string
 	confirmPass: string
@@ -36,7 +38,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 
 	return (
 		<div>
-			<TextField
+			<StyledTextField
 				error={errorPass || errorSamePass}
 				helperText={errorMessageReducer()}
 				variant='outlined'
@@ -54,8 +56,8 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 					endAdornment: <InputAdornmentComponent showPass={showPass} />,
 				}}
 			/>
-			<TextField
-				sx={{ marginTop: '1rem' }}
+			<StyledTextField
+				// sx={{ marginTop: '1rem' }}
 				error={errorPass || errorSamePass}
 				helperText={errorMessageReducer()}
 				variant='outlined'

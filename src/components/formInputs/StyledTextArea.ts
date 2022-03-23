@@ -8,6 +8,7 @@ export const StyledTextArea = styled(TextareaAutosize)`
 	width: 100%;
 	border-radius: 5px;
 	border: 1px solid ${Colors.oficialBlue};
+	border-color: ${Colors.oficialBlue};
 	font-weight: 400;
 	font-size: 1rem;
 `

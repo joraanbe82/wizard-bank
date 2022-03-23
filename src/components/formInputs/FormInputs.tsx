@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import TextField from '@mui/material/TextField'
 import TextareaAutosize from '@mui/material/TextareaAutosize'
-import InputAdornment from '@mui/material/InputAdornment'
-import IconButton from '@mui/material/IconButton'
-import Visibility from '@mui/icons-material/Visibility'
-import VisibilityOff from '@mui/icons-material/VisibilityOff'
 
 import { ActionTypes } from '../../action-types'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { ComparePasswords } from '../../utils/Validations'
+
+import InputAdornmentComponent from './InputAdorment'
 
 interface FormProps {
 	pass: string
@@ -36,15 +34,6 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 		}
 	}
 
-	const handleClickShowPassword = () => {
-		dispatch({ type: ActionTypes.SHOW_PASSWORD, payload: !showPass })
-	}
-
-	const handleMouseDownPassword = (
-		event: React.MouseEvent<HTMLButtonElement>
-	) => {
-		event.preventDefault()
-	}
 	return (
 		<div>
 			<TextField
@@ -62,17 +51,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 				value={pass}
 				fullWidth
 				InputProps={{
-					endAdornment: (
-						<InputAdornment position='end'>
-							<IconButton
-								aria-label='toggle password visibility'
-								onClick={handleClickShowPassword}
-								onMouseDown={handleMouseDownPassword}
-								edge='end'>
-								{showPass ? <VisibilityOff /> : <Visibility />}
-							</IconButton>
-						</InputAdornment>
-					),
+					endAdornment: <InputAdornmentComponent showPass={showPass} />,
 				}}
 			/>
 			<TextField
@@ -91,17 +70,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 				value={confirmPass}
 				onBlur={() => passwordsEquals(pass, confirmPass)}
 				InputProps={{
-					endAdornment: (
-						<InputAdornment position='end'>
-							<IconButton
-								aria-label='toggle password visibility'
-								onClick={handleClickShowPassword}
-								onMouseDown={handleMouseDownPassword}
-								edge='end'>
-								{showPass ? <VisibilityOff /> : <Visibility />}
-							</IconButton>
-						</InputAdornment>
-					),
+					endAdornment: <InputAdornmentComponent showPass={showPass} />,
 				}}
 			/>
 			<TextareaAutosize

@@ -4,7 +4,7 @@ import DoneAll from '@mui/icons-material/DoneAll'
 import ErrorOutline from '@mui/icons-material/ErrorOutline'
 
 import { Colors } from '../../styles/Colors'
-import { H3Styled, Title } from './StyledResponse'
+import './ResponseFeedback.css'
 
 interface Props {
 	complete: null | boolean
@@ -15,20 +15,20 @@ function ResponseFeedback({ complete }: Props) {
 	const completeError =
 		'Lo sentimos no hemos podido crear tu Cuenta Corriente OpenClose, inténtelo de	nuevo mas tarde'
 	return (
-		<>
+		<section className='responseSection'>
 			{complete ? (
-				<Title>
+				<div className='responseTitle'>
 					<DoneAll stroke={Colors.green} />
-					<H3Styled>¡Cuenta OpenClose creada satisfactortiamente!</H3Styled>
-				</Title>
+					<h3>¡Cuenta OpenClose creada satisfactortiamente!</h3>
+				</div>
 			) : (
-				<Title>
+				<div className='responseTitle'>
 					<ErrorOutline />
-					<H3Styled>Ha abido un error</H3Styled>
-				</Title>
+					<h3>Ha abido un error</h3>
+				</div>
 			)}
 			<div>{complete ? completeSuccess : completeError}</div>
-		</>
+		</section>
 	)
 }
 

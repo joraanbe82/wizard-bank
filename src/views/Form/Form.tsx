@@ -20,9 +20,9 @@ type Props = {
 
 function Form({ handleNext, handleBack }: Props) {
 	const dispatch = useAppDispatch()
-	const pass = useAppSelector(state => state.stepper.pass)
-	const confirmPass = useAppSelector(state => state.stepper.confirmPass)
-	const clue = useAppSelector(state => state.stepper.clue)
+	const pass = useAppSelector(state => state.form.pass)
+	const confirmPass = useAppSelector(state => state.form.confirmPass)
+	const clue = useAppSelector(state => state.form.clue)
 
 	const isFormValid = () => {
 		if (pass && confirmPass && clue) {

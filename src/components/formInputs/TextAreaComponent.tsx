@@ -32,7 +32,7 @@ function TextAreaComponent({ clue }: Props) {
 				}
 				value={clue}
 			/>
-			<small>Máximo 255 carácteres</small>
+			<small>Máximo 255 caracteres</small>
 		</section>
 	)
 }

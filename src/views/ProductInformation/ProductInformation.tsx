@@ -12,7 +12,7 @@ type Props = {
 }
 function ProductInformation({ handleNext }: Props) {
 	const dispatch = useAppDispatch()
-	const terms = useAppSelector(state => state.stepper.terms)
+	const terms = useAppSelector(state => state.form.terms)
 
 	const handleTerms = (event: ChangeEvent<HTMLInputElement>) => {
 		dispatch({

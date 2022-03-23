@@ -3,28 +3,14 @@ import { ActionTypes } from '../action-types'
 
 export type stepperState = {
 	currentPage: number
-	terms: boolean
-	pass: string
-	confirmPass: string
-	errorPass: boolean
-	errorSamePass: boolean
-	clue: string
 	complete: null | boolean
 	pending: null | boolean
-	showPass: boolean
 }
 
 const initialState = {
 	currentPage: 0,
-	terms: false,
-	pass: '',
-	confirmPass: '',
-	errorPass: false,
-	errorSamePass: false,
-	clue: '',
 	complete: null,
 	pending: null,
-	showPass: false,
 }
 
 export const StepperReducer = (
@@ -32,6 +18,17 @@ export const StepperReducer = (
 	state: stepperState = initialState,
 	action: StepperActions
 ): stepperState => {
+	// const flow = {
+	// 	NEXT_STEP: (state: stepperState, action: ActionTypes) => ({
+	// 		...state,
+	// 		currentPage: action.payload,
+	// 	}),
+	// 	BACK_STEP: () => ({ ...state, currentPage: action.type }),
+	// 	RESET_STEP: () => state,
+	// }
+
+	// return flow[action.type] ? flow[action.type](state, action) : state
+
 	switch (action.type) {
 		case ActionTypes.NEXT_STEP:
 			return { ...state, currentPage: action.payload }
@@ -39,36 +36,13 @@ export const StepperReducer = (
 			return { ...state, currentPage: action.payload }
 		case ActionTypes.RESET_STEPS:
 			return initialState
-		case ActionTypes.ACCEPT_TERMS:
-			return { ...state, terms: action.payload }
-		case ActionTypes.SET_PASSWORD:
-			return {
-				...state,
-				pass: action.payload,
-				errorPass: false,
-				errorSamePass: false,
-			}
-		case ActionTypes.CONFIRM_PASSWORD:
-			return {
-				...state,
-				confirmPass: action.payload,
-				errorPass: false,
-				errorSamePass: false,
-			}
-		case ActionTypes.ERROR_PASSWORD:
-			return { ...state, errorPass: action.payload }
-		case ActionTypes.ERROR_SAME_PASSWORD:
-			return { ...state, errorSamePass: true }
-		case ActionTypes.SET_CLUE:
-			return { ...state, clue: action.payload }
 		case ActionTypes.COMPLETE_SUCCESS:
 			return { ...state, complete: action.payload }
 		case ActionTypes.COMPLETE_ERROR:
 			return { ...state, complete: action.payload }
 		case ActionTypes.PENDING_PROCCESS:
 			return { ...state, pending: action.payload }
-		case ActionTypes.SHOW_PASSWORD:
-			return { ...state, showPass: action.payload }
+
 		default:
 			return state
 	}

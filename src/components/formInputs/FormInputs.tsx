@@ -19,9 +19,9 @@ interface FormProps {
 
 function FormInputs({ pass, confirmPass, clue }: FormProps) {
 	const dispatch = useAppDispatch()
-	const errorPass = useAppSelector(state => state.stepper.errorPass)
-	const errorSamePass = useAppSelector(state => state.stepper.errorSamePass)
-	const showPass = useAppSelector(state => state.stepper.showPass)
+	const errorPass = useAppSelector(state => state.form.errorPass)
+	const errorSamePass = useAppSelector(state => state.form.errorSamePass)
+	const showPass = useAppSelector(state => state.form.showPass)
 
 	const errorMessageReducer = () => {
 		if (errorSamePass) return 'Las contraseñas deben de ser iguales'

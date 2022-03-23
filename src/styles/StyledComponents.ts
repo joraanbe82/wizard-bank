@@ -7,6 +7,9 @@ import { Colors } from './Colors'
 
 export const StepperButton = styled(Button)`
 	background: ${Colors.oficialBlue};
+	&:hover {
+		background: #002b45d1;
+	}
 `
 
 export const StyledTextField = styled(TextField)`

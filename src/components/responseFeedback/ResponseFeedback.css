@@ -1,0 +1,13 @@
+.responseTitle {
+	display: flex;
+	align-items: center;
+}
+
+.responseTitle h3 {
+	font-size: '24px';
+	margin-left: 1rem;
+}
+
+.responseSection {
+	margin-bottom: 2rem;
+}

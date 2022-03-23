@@ -55,6 +55,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
 				}}
 			/>
 			<TextField
+				sx={{ marginTop: '1rem' }}
 				error={errorPass || errorSamePass}
 				helperText={errorMessageReducer()}
 				variant='outlined'

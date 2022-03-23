@@ -10,6 +10,8 @@ import { StepperButton } from '../../styles/StyledComponents'
 
 import FormInputs from '../../components/formInputs/FormInputs'
 
+import './Form.css'
+
 type Props = {
 	handleNext: () => void
 	handleBack: () => void
@@ -62,7 +64,7 @@ function Form({ handleNext, handleBack }: Props) {
 			</h6>
 
 			<FormInputs pass={pass} confirmPass={confirmPass} clue={clue} />
-			<section>
+			<section className='buttonsSection'>
 				<StepperButton
 					startIcon={<ArrowBackIos />}
 					variant='contained'

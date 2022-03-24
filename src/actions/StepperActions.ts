@@ -10,6 +10,7 @@ interface BackStep {
 }
 interface ResetSteps {
 	type: ActionTypes.RESET_STEPS
+	payload: boolean
 }
 interface AcceptTerms {
 	type: ActionTypes.ACCEPT_TERMS

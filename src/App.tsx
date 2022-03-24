@@ -26,7 +26,7 @@ function App() {
 	}
 
 	const handleReset = () => {
-		dispatch({ type: ActionTypes.RESET_STEPS })
+		dispatch({ type: ActionTypes.RESET_STEPS, payload: true })
 	}
 
 	return (

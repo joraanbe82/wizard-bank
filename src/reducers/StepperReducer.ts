@@ -19,12 +19,12 @@ export const StepperReducer = (
 	action: StepperActions
 ): stepperState => {
 	// const flow = {
-	// 	NEXT_STEP: (state: stepperState, action: ActionTypes) => ({
+	// 	NEXT_STEP: () => ({
 	// 		...state,
 	// 		currentPage: action.payload,
 	// 	}),
 	// 	BACK_STEP: () => ({ ...state, currentPage: action.type }),
-	// 	RESET_STEP: () => state,
+	// 	RESET_STEPS: () => state,
 	// }
 
 	// return flow[action.type] ? flow[action.type](state, action) : state

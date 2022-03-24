@@ -2,7 +2,6 @@ import React, { ChangeEvent } from 'react'
 
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos'
 import FormControlLabel from '@mui/material/FormControlLabel'
-import Button from '@mui/material/Button'
 
 import {
 	CancelButton,

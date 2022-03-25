@@ -27,7 +27,7 @@ function Feedback({ handleReset }: Props) {
 	}, [])
 
 	return (
-		<section>
+		<section className='feedbackSection'>
 			{!pending && (
 				<>
 					<ResponseFeedback complete={complete} />

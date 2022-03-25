@@ -18,12 +18,15 @@ function ResponseFeedback({ complete }: Props) {
 		<section className='responseSection'>
 			{complete ? (
 				<div className='responseTitle'>
-					<DoneAllIcon stroke={Colors.green} />
+					<DoneAllIcon stroke={Colors.green} data-testid='done-icon' />
 					<h3>¡Cuenta OpenClose creada satisfactortiamente!</h3>
 				</div>
 			) : (
 				<div className='responseTitle'>
-					<ErrorIcon sx={{ color: Colors.oficialRed }} />
+					<ErrorIcon
+						sx={{ color: Colors.oficialRed }}
+						data-testid='error-icon'
+					/>
 					<h3>Ha ocurrido un error</h3>
 				</div>
 			)}

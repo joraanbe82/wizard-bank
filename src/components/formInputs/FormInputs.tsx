@@ -29,21 +29,21 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
   }
 
   const isFormatValid = () => {
-    let isDataValid = true
+    if (pass.length > 0 && confirmPass.length > 0) {
+      let isDataValid = true
+      if (pass.length < 8 || confirmPass.length < 8) {
+        isDataValid = false
+      }
+      if (ComparePasswords(pass, confirmPass) !== 0) {
+        dispatch({ type: ActionTypes.ERROR_SAME_PASSWORD, payload: true })
+      }
 
-    if (pass.length < 8 || confirmPass.length < 8) {
-      isDataValid = false
-    }
-    if (ComparePasswords(pass, confirmPass) !== 0) {
-      dispatch({ type: ActionTypes.ERROR_SAME_PASSWORD, payload: true })
-    }
-
-    if (!ValidatePassword(pass)) {
-      isDataValid = false
-    }
-
-    if (!isDataValid) {
-      dispatch({ type: ActionTypes.ERROR_PASSWORD, payload: true })
+      if (!ValidatePassword(pass)) {
+        isDataValid = false
+      }
+      if (!isDataValid) {
+        dispatch({ type: ActionTypes.ERROR_PASSWORD, payload: true })
+      }
     }
   }
   return (
@@ -60,6 +60,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
             payload: e.target.value,
           })
         }
+        onBlur={() => isFormatValid()}
         value={pass}
         fullWidth
         InputProps={{

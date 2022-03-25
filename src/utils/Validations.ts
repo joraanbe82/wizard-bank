@@ -8,3 +8,29 @@ export const ComparePasswords = (pass: string, confirmPass: string) => {
   const compare = pass.localeCompare(confirmPass)
   return compare
 }
+
+interface FormValidProps {
+  pass: string
+  confirmPass: string
+  clue: string
+  errorPass: boolean
+  errorSamePass: boolean
+}
+export const IsFormValid = (
+  pass: string,
+  confirmPass: string,
+  clue: string,
+  errorPass: boolean,
+  errorSamePass: boolean
+): boolean => {
+  if (pass && confirmPass && clue) {
+    return (
+      pass.length >= 8 &&
+      confirmPass.length >= 8 &&
+      clue.length > 0 &&
+      !errorPass &&
+      !errorSamePass
+    )
+  }
+  return false
+}

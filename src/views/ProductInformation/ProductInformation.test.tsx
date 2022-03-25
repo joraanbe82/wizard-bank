@@ -56,6 +56,7 @@ describe('render product information component', () => {
     fireEvent.click(nextButton)
     expect(handleNext).toHaveBeenCalledTimes(1)
   })
+
   test('current page have to be 0', () => {
     const { currentPage } = store.getState().stepper
     expect(currentPage).toBe(0)

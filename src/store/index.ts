@@ -13,13 +13,13 @@ export type GlobalState = ReturnType<typeof rootReducer>
 const sagaMiddleware = createSagaMiddleware()
 
 export const rootReducer = combineReducers({
-	stepper: StepperReducer,
-	form: FormReducer,
+  stepper: StepperReducer,
+  form: FormReducer,
 })
 
 const store = createStore(
-	rootReducer,
-	composeWithDevTools(applyMiddleware(sagaMiddleware))
+  rootReducer,
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
 )
 
 sagaMiddleware.run(rootSaga)
@@ -27,10 +27,10 @@ sagaMiddleware.run(rootSaga)
 export type AppDispatch = typeof store.dispatch
 export type RootState = ReturnType<typeof store.getState>
 export type AppThunk<ReturnType = void> = ThunkAction<
-	ReturnType,
-	RootState,
-	unknown,
-	Action<string>
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
 >
 
 export default store

@@ -56,12 +56,4 @@ export const FormReducer = (
     default:
       return state
   }
-  // const flow = {
-  // 	ACCEPT_TERMS: (newState: formState, newAction: StepperActions) => ({
-  // 		...newState,
-  // 		terms: newAction,
-  // 	}),
-  // }
-
-  // return flow[action.type] ? flow[action.type](state, action) : state
 }

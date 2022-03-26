@@ -21,7 +21,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
   const errorSamePass = useAppSelector(state => state.form.errorSamePass)
   const showPass = useAppSelector(state => state.form.showPass)
 
-  const errorMessageReducer = () => {
+  const errorMessages = () => {
     if (errorSamePass) return 'Las contraseñas deben de ser iguales'
     if (errorPass)
       return 'La contraseña debe de tener al menos una letra mayúscula, un número y entre 8 y 24 carácteres'
@@ -50,7 +50,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
     <div>
       <StyledTextField
         error={errorPass || errorSamePass}
-        helperText={errorMessageReducer()}
+        helperText={errorMessages()}
         variant='outlined'
         label='Contraseña'
         type={showPass ? 'text' : 'password'}
@@ -70,7 +70,7 @@ function FormInputs({ pass, confirmPass, clue }: FormProps) {
       />
       <StyledTextField
         error={errorPass || errorSamePass}
-        helperText={errorMessageReducer()}
+        helperText={errorMessages()}
         variant='outlined'
         label='Repetir Contraseña'
         type={showPass ? 'text' : 'password'}

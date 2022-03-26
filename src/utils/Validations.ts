@@ -9,13 +9,6 @@ export const ComparePasswords = (pass: string, confirmPass: string) => {
   return compare
 }
 
-interface FormValidProps {
-  pass: string
-  confirmPass: string
-  clue: string
-  errorPass: boolean
-  errorSamePass: boolean
-}
 export const IsFormValid = (
   pass: string,
   confirmPass: string,

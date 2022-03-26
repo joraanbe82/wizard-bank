@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos'
 import ArrowBackIos from '@mui/icons-material/ArrowBackIos'
@@ -24,10 +24,6 @@ function Form({ handleNext, handleBack }: Props) {
   const clue = useAppSelector(state => state.form.clue)
   const errorPass = useAppSelector(state => state.form.errorPass)
   const errorSamePass = useAppSelector(state => state.form.errorSamePass)
-
-  // useEffect(() => {
-  //   IsFormValid(pass, confirmPass, clue, errorPass, errorSamePass)
-  // }, [pass, confirmPass, clue, errorPass, errorSamePass])
 
   return (
     <section>

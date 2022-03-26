@@ -5,7 +5,7 @@ Este proyecto fue iniciado con Create React App. [Create React App](https://gith
 ## Descripción del proyecto ✒️
 
 El proyecto está configurado con el propósito de erradicar las excepciones en tiempo de ejecución.  
-La comprobación estática nos ayuda a detectar una cantidad significativa de posibles errores de ejecución en tiempo de compilación.
+La comprobación estática nos ayuda a detectar una cantidad significativa de posibles errores de ejecución en tiempo de compilación. Se ha intentado seguir en todo momento los principios SOLID y los estándares y estilos usados en la configuración del proyecto son los de Airbnb. 
 
 Vamos a emplear Typescript y Eslint junto con Prettier para detectar tantos problemas como sea posible. Esto ahorra muchos problemas en la producción.
 
@@ -42,6 +42,13 @@ El proyecto se estructura de la siguiente manera, dentro de la carptea `src` en 
 - En la carpeta styles hay un archivo colors donde se declaran los colores oficiales para poder importarlos en cualquier componente y un archivo styledComponents donde se declaran aquellos componentes de material-ui estilados con la librería de style-components que se pueden usar en más de un componente para no declararlos varias veces.
 - En la carpeta utils hay un archivo validations donde se declaran las funciones de comprobacion de que las contraseñas sean identicas y otra con un regex que verifique que se cumplen los requisitos de las contraseñas.
   -En la carpeta views se encuentran los componentes que se consideran una vista completa en sí, junto con sus respectivos archivos de estilos css.
+
+## Testing y coverage
+
+Para el testing se ha utilizado la librería por defecto que viene con la creación de un proyecto con CRA que es `react-testing-library`, los tests están junto con los componentes principales de las vistas y el App.tsx.
+A continuación se muestra una imagen del coverage alcanzado con los testings:
+![Image text](https://github.com/joraanbe82/wizard-bank/blob/master/public/Testing-coverage.jpg)
+
 
 ## Scripts disponibles ⌨️
 

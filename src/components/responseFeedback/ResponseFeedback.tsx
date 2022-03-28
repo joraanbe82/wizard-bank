@@ -4,16 +4,17 @@ import DoneAllIcon from '@mui/icons-material/DoneAll'
 import ErrorIcon from '@mui/icons-material/Error'
 
 import { Colors } from '../../styles/Colors'
+import { useAppSelector } from '../../store/hooks'
+
 import './ResponseFeedback.css'
 
-interface Props {
-  complete: null | boolean
-}
+function ResponseFeedback() {
+  const complete = useAppSelector(state => state.stepper.complete)
 
-function ResponseFeedback({ complete }: Props) {
   const completeSuccess = 'El registro se ha completado satisfactoriamente'
   const completeError =
     'Lo sentimos no hemos podido crear tu Cuenta Corriente OpenClose, inténtelo de	nuevo mas tarde'
+
   return (
     <section className='responseSection'>
       {complete ? (

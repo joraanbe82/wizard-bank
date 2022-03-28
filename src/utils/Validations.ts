@@ -10,11 +10,11 @@ export const ComparePasswords = (pass: string, confirmPass: string) => {
 }
 
 export const IsFormValid = (
-  pass: string,
-  confirmPass: string,
   clue: string,
+  confirmPass: string,
   errorPass: boolean,
-  errorSamePass: boolean
+  errorSamePass: boolean,
+  pass: string
 ): boolean => {
   if (pass && confirmPass && clue) {
     return (

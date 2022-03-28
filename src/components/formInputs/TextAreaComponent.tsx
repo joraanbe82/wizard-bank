@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { ActionTypes } from '../../action-types'
-import { useAppDispatch } from '../../store/hooks'
 import { StyledTextArea } from './StyledTextArea'
+import { useAppDispatch } from '../../store/hooks'
 
 import './TextAreaComponent.css'
 

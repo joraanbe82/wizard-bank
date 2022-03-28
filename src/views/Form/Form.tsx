@@ -1,15 +1,14 @@
 import React from 'react'
 
-import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos'
 import ArrowBackIos from '@mui/icons-material/ArrowBackIos'
+import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos'
 
-import FormTitle from '../../components/formInputs/FormTitle'
 import { useAppSelector } from '../../store/hooks'
 import { StepperButton } from '../../styles/StyledComponents'
 
-import FormInputs from '../../components/formInputs/FormInputs'
-
 import { IsFormValid } from '../../utils/Validations'
+import FormInputs from '../../components/formInputs/FormInputs'
+import FormTitle from '../../components/formInputs/FormTitle'
 
 import './Form.css'
 
@@ -31,20 +30,20 @@ function Form({ handleNext, handleBack }: Props) {
       <FormInputs pass={pass} confirmPass={confirmPass} clue={clue} />
       <section className='buttonsSection'>
         <StepperButton
+          onClick={() => handleBack()}
           startIcon={<ArrowBackIos />}
-          variant='contained'
           type='button'
-          onClick={() => handleBack()}>
+          variant='contained'>
           Volver
         </StepperButton>
         <StepperButton
-          variant='contained'
-          type='button'
           endIcon={<ArrowForwardIos />}
-          onClick={() => handleNext()}
           disabled={
-            !IsFormValid(pass, confirmPass, clue, errorPass, errorSamePass)
-          }>
+            !IsFormValid(clue, confirmPass, errorPass, errorSamePass, pass)
+          }
+          onClick={() => handleNext()}
+          type='button'
+          variant='contained'>
           Siguiente
         </StepperButton>
       </section>

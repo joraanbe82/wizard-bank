@@ -1,13 +1,13 @@
 import React from 'react'
 
-import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
+import InputAdornment from '@mui/material/InputAdornment'
 import Visibility from '@mui/icons-material/VisibilityOutlined'
 import VisibilityOff from '@mui/icons-material/VisibilityOffOutlined'
 
 import { ActionTypes } from '../../action-types'
-import { useAppDispatch } from '../../store/hooks'
 import { Colors } from '../../styles/Colors'
+import { useAppDispatch } from '../../store/hooks'
 
 interface Props {
   showPass: boolean

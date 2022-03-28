@@ -7,9 +7,9 @@ Este proyecto fue iniciado con Create React App. [Create React App](https://gith
 El proyecto está configurado con el propósito de erradicar las excepciones en tiempo de ejecución.  
 La comprobación estática nos ayuda a detectar una cantidad significativa de posibles errores de ejecución en tiempo de compilación. Se ha intentado seguir en todo momento los principios SOLID y los estándares y estilos usados en la configuración del proyecto son los de Airbnb. 
 
-Vamos a emplear Typescript y Eslint junto con Prettier para detectar tantos problemas como sea posible. Esto ahorra muchos problemas en la producción.
+Vamos a emplear Typescript y Eslint junto con Prettier para detectar tantos problemas como sea posible. Esto ahorra muchos problemas en la producción. Para que eslint y prettier puedan trabajar juntos y entenderse se han instalado dos plugins, `eslint-config-prettier` y `eslint-plugin-security`.
 
-Finalmente usaremos Husky que nos dará acceso a git hooks, que son unos scripts que se ejecutan automáticamente cada vez que un evento en particula ocurre en un repositorio de Git.
+Finalmente usaremos Husky que nos dará acceso a git hooks, que son unos scripts que se ejecutan automáticamente cada vez que un evento en particular ocurre en un repositorio de Git.
 
 Utilizaremos el pre-commit hook para ejecutar nuestro script de validación para que los desarrolladores no puedan confirmar ningún código sin pasar la validación y lint-staged se encargará de hacer todas las revisiones ejecutando los comandos npm run format:fix y npm run validate.
 

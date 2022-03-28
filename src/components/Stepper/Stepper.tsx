@@ -1,7 +1,8 @@
 import React from 'react'
+
 import Box from '@mui/material/Box'
-import Stepper from '@mui/material/Stepper'
 import StepLabel from '@mui/material/StepLabel'
+import Stepper from '@mui/material/Stepper'
 
 import { useAppSelector } from '../../store/hooks'
 

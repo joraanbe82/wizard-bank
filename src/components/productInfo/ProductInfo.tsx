@@ -1,9 +1,9 @@
 import React, { ChangeEvent } from 'react'
 import FormControlLabel from '@mui/material/FormControlLabel'
 
+import { ActionTypes } from '../../action-types'
 import { StyledCheckBox } from '../../styles/StyledComponents'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { ActionTypes } from '../../action-types'
 
 function ProductInfo() {
   const dispatch = useAppDispatch()

@@ -2,14 +2,14 @@ import { StepperActions } from '../actions/StepperActions'
 import { ActionTypes } from '../action-types'
 
 export type stepperState = {
-  currentPage: number
   complete: null | boolean
+  currentPage: number
   pending: null | boolean
 }
 
 const initialState = {
-  currentPage: 0,
   complete: null,
+  currentPage: 0,
   pending: null,
 }
 

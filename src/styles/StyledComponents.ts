@@ -23,9 +23,12 @@ export const CancelButton = styled(Button)`
 export const StyledTextField = styled(TextField)`
   margin-top: 1rem;
 
+  // label when is focused
   .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
     color: ${Colors.oficialBlue};
   }
+
+  // border when is focused
   .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused
     .MuiOutlinedInput-notchedOutline {
     border-color: ${Colors.oficialBlue};

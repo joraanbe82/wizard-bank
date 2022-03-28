@@ -23,11 +23,11 @@ function ProductInformation({ handleNext }: Props) {
           Cancelar
         </CancelButton>
         <StepperButton
-          variant='contained'
-          type='button'
+          disabled={!isFormValid()}
           endIcon={<ArrowForwardIos />}
           onClick={() => handleNext()}
-          disabled={!isFormValid()}>
+          type='button'
+          variant='contained'>
           Siguiente
         </StepperButton>
       </div>

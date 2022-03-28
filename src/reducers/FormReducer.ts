@@ -2,23 +2,23 @@ import { StepperActions } from '../actions/StepperActions'
 import { ActionTypes } from '../action-types'
 
 export type formState = {
-  terms: boolean
-  pass: string
-  confirmPass: string
   clue: string
+  confirmPass: string
   errorPass: boolean
   errorSamePass: boolean
+  pass: string
   showPass: boolean
+  terms: boolean
 }
 
 const initialState = {
-  terms: false,
-  pass: '',
-  confirmPass: '',
   clue: '',
+  confirmPass: '',
   errorPass: false,
   errorSamePass: false,
+  pass: '',
   showPass: false,
+  terms: false,
 }
 
 export const FormReducer = (

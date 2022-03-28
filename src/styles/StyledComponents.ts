@@ -25,13 +25,13 @@ export const StyledTextField = styled(TextField)`
 
   // label when is focused
   .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
-    color: ${Colors.oficialBlue};
+    color: ${Colors.oficialBlue}!important;
   }
 
   // border when is focused
   .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused
     .MuiOutlinedInput-notchedOutline {
-    border-color: ${Colors.oficialBlue};
+    border-color: ${Colors.oficialBlue}!important;
   }
 `
 export const StyledCheckBox = styled(Checkbox)`
